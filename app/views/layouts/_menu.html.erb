@@ -1,0 +1,15 @@
+<h1 class="float-start" id="site-name">PT. Limputra Sukses Motorindo</h1>
+
+<ul class="float-end list-unstyled" id="topnav">
+    <li><%= link_to "Home", root_path %></li>
+    
+    <% if user_signed_in? %>
+        <% if current_user.role_id == 1%>
+            <li><%= link_to "Admin", raks_path %></li>
+        <% end %>
+        <li style="display: inline-block"><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-link link-danger" %></li>
+    <% else %>
+        <li><%= link_to "Sign In", new_user_session_path %></li> 
+    <% end %> 
+    
+</ul>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @rak %>
+
+<div>
+  <%= link_to "Edit this rak", edit_rak_path(@rak) %> |
+  <%= link_to "Back to raks", raks_path %>
+
+  <%= button_to "Destroy this rak", @rak, method: :delete %>
+</div>

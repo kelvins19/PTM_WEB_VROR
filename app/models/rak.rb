@@ -1,0 +1,2 @@
+class Rak < ApplicationRecord
+end

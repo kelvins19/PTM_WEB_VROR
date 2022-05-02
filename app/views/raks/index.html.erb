@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <h1 class="float-start">Raks  <%= link_to "New rak", new_rak_path, class: "h5 float-end" %></h1>
+
+   
+  </div>
+  <div id="raks">
+
+    <div class="row">
+      <table>
+        <thead>
+          <th>Nama Rak</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <% @raks.each do |rak| %>
+          <tr>
+            <td><%= render rak %></td>
+            <td>
+              <%= link_to "Show this rak", rak %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class=”row margin-twenty5-zero margin-b-zero pagination-row”>
+
+      <div class=”col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero”>
+
+        <ul class=”pagination”>
+
+          <li class=”disabled”>
+            <%= will_paginate @raks %>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class=”col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info”>
+
+        <span class=”pull-right”><%= page_entries_info(@raks) %></span>
+
+      </div>
+
+    </div>
+  </div>
+</div>
