@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <h1 class="float-start">Customers <%= link_to "New customer", new_customer_path, class: "h5 float-end" %></h1>
+    <%= form_tag customers_path, method: :get, class: "pb-5" do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <div id="customers">
+    <div class="row">
+      <table>
+        <thead>
+          <th class="text-center">ID</th>
+          <th class="text-center">Nama Pelanggan</th>
+          <th class="text-center">Alamat</th>
+          <th class="text-center">Daerah</th>
+          <th class="text-center">Action</th>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+          <tr>
+            <%= render customer %>
+            <td class="text-center">
+              <%= link_to "Show this customer", customer %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="row pagination-row mt-3 justify-content-center">
+      <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+        <ul class="digg_pagination">
+          <%= will_paginate @raks %>
+        </ul>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
+          <span class=”pull-right”><%= page_entries_info(@raks) %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

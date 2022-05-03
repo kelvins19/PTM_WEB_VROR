@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nama_pelanggan: MyString
+  alamat: MyString
+  daerah: MyString
+
+two:
+  nama_pelanggan: MyString
+  alamat: MyString
+  daerah: MyString

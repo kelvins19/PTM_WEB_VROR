@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customers
   resources :raks
   devise_for :users
   get 'public/index'

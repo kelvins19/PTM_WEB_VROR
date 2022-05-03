@@ -3,7 +3,7 @@ require 'will_paginate/array'
 class RaksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_rak, only: %i[ show edit update destroy ]
-  before_action :can_modify_raks
+  before_action :can_access_raks
 
   # GET /raks or /raks.json
   def index
@@ -72,7 +72,7 @@ class RaksController < ApplicationController
       @rak = Rak.find(params[:id])
     end
 
-    def can_modify_raks
+    def can_access_raks
       redirect_back(fallback_location: root_path) and return unless current_user.role_id == 1
     end
 
