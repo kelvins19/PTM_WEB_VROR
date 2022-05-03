@@ -2,22 +2,25 @@
 <div class="container">
   <div class="row">
     <h1 class="float-start">Raks <%= link_to "New rak", new_rak_path, class: "h5 float-end" %></h1>
-
-
+    <%= form_tag raks_path, method: :get, class: "pb-5" do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag "Search" %>
+    <% end %>
   </div>
-  <div id="raks">
 
+  <div id="raks">
     <div class="row">
       <table>
         <thead>
-          <th>Nama Rak</th>
-          <th>Action</th>
+          <th class="text-center">ID</th>
+          <th class="text-center">Nama Rak</th>
+          <th class="text-center">Action</th>
         </thead>
         <tbody>
           <% @raks.each do |rak| %>
           <tr>
-            <td><%= render rak %></td>
-            <td>
+            <%= render rak %>
+            <td class="text-center">
               <%= link_to "Show this rak", rak %>
             </td>
           </tr>
@@ -26,25 +29,16 @@
       </table>
     </div>
     <div class="row pagination-row mt-3 justify-content-center">
-
       <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
-
         <ul class="digg_pagination">
-
           <%= will_paginate @raks %>
-
         </ul>
-
       </div>
-
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
-
           <span class=”pull-right”><%= page_entries_info(@raks) %></span>
-
         </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class RaksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_rak, only: %i[ show edit update destroy ]
@@ -6,7 +8,11 @@ class RaksController < ApplicationController
   # GET /raks or /raks.json
   def index
     # @raks = Rak.all
-    @raks = Rak.paginate(page: params[:page], per_page: 30)
+    # if params[:search]
+      @raks = Rak.search(params).paginate(page: params[:page], per_page: 30)
+    # else
+      # @raks = Rak.paginate(page: params[:page], per_page: 30)
+    # end
   end
 
   # GET /raks/1 or /raks/1.json
