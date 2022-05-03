@@ -17,14 +17,14 @@
           <th class="text-center">Action</th>
         </thead>
         <tbody>
-        <tr>
           <% @brand_subcategories.each do |brand_subcategory| %>
-          <%= render brand_subcategory %>
-          <td class="text-center">
-            <%= link_to "Show this brand subcategory", brand_subcategory %>
-          </td>
-          <% end %>
+          <tr>
+            <%= render brand_subcategory %>
+            <td class="text-center">
+              <%= link_to "Show this brand subcategory", brand_subcategory %>
+            </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
