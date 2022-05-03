@@ -1,0 +1,22 @@
+<%= form_with(model: brand_subcategory) do |form| %>
+  <% if brand_subcategory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(brand_subcategory.errors.count, "error") %> prohibited this brand_subcategory from being saved:</h2>
+
+      <ul>
+        <% brand_subcategory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nama_merk_subkategori, style: "display: block" %>
+    <%= form.text_field :nama_merk_subkategori %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
