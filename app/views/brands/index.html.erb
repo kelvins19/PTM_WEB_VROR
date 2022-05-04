@@ -2,10 +2,7 @@
 <div class="container">
   <div class="row">
     <h1 class="float-start">Brands <%= link_to "New brand", new_brand_path, class: "h5 float-end" %></h1>
-    <%= form_tag brands_path, method: :get, class: "pb-5" do %>
-    <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag "Search" %>
-    <% end %>
+    <%= render partial: "layouts/search_form1", locals: { path: brands_path } %>
   </div>
   <div id="brands">
     <div class="row">
@@ -27,17 +24,6 @@
         </tbody>
       </table>
     </div>
-    <div class="row pagination-row mt-3 justify-content-center">
-      <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
-        <ul class="digg_pagination">
-          <%= will_paginate @brands %>
-        </ul>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
-          <span class=”pull-right”><%= page_entries_info(@brands) %></span>
-        </div>
-      </div>
-    </div>
+    <%= render partial: "layouts/paginate", locals: { item: @brands } %>
   </div>
 </div>

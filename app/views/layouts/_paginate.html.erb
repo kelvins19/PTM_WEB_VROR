@@ -1,0 +1,12 @@
+<div class="row pagination-row mt-3 justify-content-center">
+    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+        <ul class="digg_pagination">
+            <%= will_paginate item %>
+        </ul>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
+            <span class=”pull-right”><%= page_entries_info(item) %></span>
+        </div>
+    </div>
+</div>

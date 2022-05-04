@@ -3,10 +3,7 @@
   <div class="row">
     <h1 class="float-start">Brand categories
       <%= link_to "New brand category", new_brand_category_path, class: "h5 float-end" %></h1>
-    <%= form_tag brand_categories_path, method: :get, class: "pb-5" do %>
-    <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag "Search" %>
-    <% end %>
+    <%= render partial: "layouts/search_form1", locals: { path: brand_categories_path } %>
   </div>
   <div id="brand_categories">
     <div class="row">
@@ -28,17 +25,6 @@
         </tbody>
       </table>
     </div>
-    <div class="row pagination-row mt-3 justify-content-center">
-      <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
-        <ul class="digg_pagination">
-          <%= will_paginate @brand_categories %>
-        </ul>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
-          <span class=”pull-right”><%= page_entries_info(@brand_categories) %></span>
-        </div>
-      </div>
-    </div>
+    <%= render partial: "layouts/paginate", locals: { item: @brand_categories } %>
   </div>
 </div>
