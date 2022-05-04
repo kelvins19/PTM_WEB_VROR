@@ -1,4 +1,8 @@
+<% if user_signed_in? %>
+<h1 class="float-start mt-4" id="site-name">PT. Limputra Sukses Motorindo</h1>
+<% else %>
 <h1 class="float-start" id="site-name">PT. Limputra Sukses Motorindo</h1>
+<% end %>
 
 <ul class="float-end list-unstyled" id="topnav">
     <li><%= link_to "Home", root_path %></li>
@@ -11,6 +15,7 @@
             Admin
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><%= link_to "Merk Kategori", brand_categories_path, class: "dropdown-item" %></li>
             <li><%= link_to "Merk SubKategori", brand_subcategories_path, class: "dropdown-item" %></li>
             <li><%= link_to "Customer", customers_path, class: "dropdown-item" %></li>
             <li><%= link_to "Rak", raks_path, class: "dropdown-item" %></li>
